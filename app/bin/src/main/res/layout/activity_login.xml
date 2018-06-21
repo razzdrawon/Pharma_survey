@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="loginViewModel" type="com.razzdrawon.pharma_survey.model.LoginViewModel"/>
-        <variable name="handler" type="com.razzdrawon.pharma_survey.model.LoginViewModel" />
+        <variable name="loginViewModel" type="com.razzdrawon.pharma_survey.viewmodel.LoginViewModel"/>
+        <variable name="handler" type="com.razzdrawon.pharma_survey.viewmodel.LoginViewModel" />
     </data>
 
 <android.support.constraint.ConstraintLayout

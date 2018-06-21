@@ -13,4 +13,15 @@
         <item>No</item>
     </string-array>
 
+    <string name="country_prompt">Selecciona un servicio</string>
+
+    <string-array name="country_arrays">
+        <item>Instituto Nacional de Pediatria</item>
+        <item>Hospital General de Mexico</item>
+        <item>Hospital Infantil de Mexico</item>
+        <item>Hospital ABC</item>
+        <item>Hospital Medica Sur</item>
+
+    </string-array>
+
 </resources>

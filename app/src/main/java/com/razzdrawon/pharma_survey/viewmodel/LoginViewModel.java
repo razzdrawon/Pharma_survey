@@ -1,4 +1,4 @@
-package com.razzdrawon.pharma_survey.model;
+package com.razzdrawon.pharma_survey.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 
 import com.razzdrawon.pharma_survey.MainActivity;
+import com.razzdrawon.pharma_survey.ServiceActivity;
 
 public class LoginViewModel {
     public final ObservableField<String> user =
@@ -33,7 +34,7 @@ public class LoginViewModel {
                 Snackbar.make(view, user + ", " + password, Snackbar.LENGTH_SHORT).show();
 
                 Context context = view.getContext();
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, ServiceActivity.class);
                 context.startActivity(intent);
             }
         }, 500);
