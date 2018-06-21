@@ -6,4 +6,11 @@
 
     <string name="fragment_view_question">QuestionFragment</string>
 
+    <string name="hint_password">Escriba su contraseña...</string>
+
+    <string-array name="array_radio">
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+
 </resources>

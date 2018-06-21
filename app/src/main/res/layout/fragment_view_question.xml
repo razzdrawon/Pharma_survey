@@ -1,31 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
     <data>
-        <variable
-            name="question"
-            type="com.razzdrawon.pharma_survey.model.QuestionItem"
-            />
-        <variable
-            name="options"
-            type="com.razzdrawon.pharma_survey.model.QuestionItem[]"
-            />
+        <variable name="question" type="com.razzdrawon.pharma_survey.model.QuestionItem" />
+        <variable name="handler" type="com.razzdrawon.pharma_survey.model.QuestionItem" />
     </data>
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context="com.razzdrawon.pharma_survey.ViewQuestionFragment">
 
         <!-- TODO: Update blank fragment layout -->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@{question.toViewString()}" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:text="Sección IV"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:text="@{question.toViewString()}"
+                android:textSize="30dp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textSize="30dp"
+                    android:text="Morfina"/>
+
+                <LinearLayout
+                    android:id="@+id/ly_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <RadioGroup
+                        android:id="@+id/rg_options"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:orientation="vertical">
+
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Si"
+                                android:textSize="30dp"
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <RadioGroup
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="40dp">
+
+                                    <RadioButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Si"
+                                        android:textSize="30dp"/>
+
+                                </RadioGroup>
+                            </LinearLayout>
+
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="30dp"/>
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 </layout>

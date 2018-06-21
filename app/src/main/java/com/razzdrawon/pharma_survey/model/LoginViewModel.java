@@ -1,9 +1,13 @@
 package com.razzdrawon.pharma_survey.model;
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.ObservableField;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+
+import com.razzdrawon.pharma_survey.MainActivity;
 
 public class LoginViewModel {
     public final ObservableField<String> user =
@@ -27,6 +31,10 @@ public class LoginViewModel {
             @Override public void run() {
                 busy.set(View.GONE);
                 Snackbar.make(view, user + ", " + password, Snackbar.LENGTH_SHORT).show();
+
+                Context context = view.getContext();
+                Intent intent = new Intent(context, MainActivity.class);
+                context.startActivity(intent);
             }
         }, 500);
     }

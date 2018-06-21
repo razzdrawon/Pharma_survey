@@ -9,14 +9,80 @@
         android:orientation="vertical"
         tools:context="com.razzdrawon.pharma_survey.MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:weightSum="100">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/ic_label_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="I"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="II"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="III"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="IV"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimary"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:background="@drawable/ic_label_black_24dp"/>
+
+        </LinearLayout>
         
         <FrameLayout
             android:layout_width="match_parent"

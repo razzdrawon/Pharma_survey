@@ -10,6 +10,7 @@ public class Option implements Serializable {
 
     private String optChar;
     private String optString;
+    private Boolean checked;
 
     public Option() {
     }
@@ -33,6 +34,14 @@ public class Option implements Serializable {
 
     public void setOptString(String optString) {
         this.optString = optString;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 
     public String toViewString() {

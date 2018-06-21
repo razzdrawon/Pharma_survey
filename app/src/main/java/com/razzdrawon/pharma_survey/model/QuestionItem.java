@@ -1,5 +1,8 @@
 package com.razzdrawon.pharma_survey.model;
 
+import android.support.design.widget.Snackbar;
+import android.widget.RadioGroup;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,7 +14,7 @@ public class QuestionItem implements Serializable {
 
     private Integer qstnNbr;
     private String qstnString;
-    private List<String> options;
+    private List<Option> options;
 
     public QuestionItem() {
     }
@@ -21,7 +24,7 @@ public class QuestionItem implements Serializable {
         this.qstnString = qstnString;
     }
 
-    public QuestionItem(Integer qstnNbr, String qstnString, List<String> options) {
+    public QuestionItem(Integer qstnNbr, String qstnString, List<Option> options) {
         this.qstnNbr = qstnNbr;
         this.qstnString = qstnString;
         this.options = options;
@@ -43,16 +46,16 @@ public class QuestionItem implements Serializable {
         this.qstnString = qstnString;
     }
 
-    public List<String> getOptions() {
+    public List<Option> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(List<Option> options) {
         this.options = options;
     }
 
     public String toViewString() {
-        return qstnNbr + ".- " + qstnString;
+        return qstnString;
     }
 
     @Override
