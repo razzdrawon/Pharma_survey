@@ -1,9 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.razzdrawon.pharma_survey.SurveyActivity">
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.razzdrawon.pharma_survey.SurveyActivity">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:weightSum="100">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/ic_label_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="I"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="II"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="III"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimaryLight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="IV"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:layout_margin="7dp"
+                android:background="@color/colorPrimary"/>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:background="@drawable/ic_label_black_24dp"/>
+
+        </LinearLayout>
+        
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_container"></FrameLayout>
+
+    </LinearLayout>
+
+</layout>

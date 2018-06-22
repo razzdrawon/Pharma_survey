@@ -1,13 +1,30 @@
 package com.razzdrawon.pharma_survey;
 
+
+import android.databinding.DataBindingUtil;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.razzdrawon.pharma_survey.databinding.ActivitySurveyBinding;
+
 public class SurveyActivity extends AppCompatActivity {
+
+    // data binding
+    ActivitySurveyBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_survey);
+
+        init();
+    }
+
+    private void init(){
+        ViewQuestionFragment fragment = new ViewQuestionFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_container, fragment, getString(R.string.fragment_view_question));
+        transaction.commit();
     }
 }

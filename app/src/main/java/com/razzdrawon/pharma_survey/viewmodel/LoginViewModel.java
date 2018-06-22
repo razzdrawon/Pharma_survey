@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import com.razzdrawon.pharma_survey.MainActivity;
 import com.razzdrawon.pharma_survey.ServiceActivity;
 
 public class LoginViewModel {
