@@ -63,6 +63,7 @@ public class QuestionFragment extends Fragment {
             rb.setId(index);
             rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
             rg.addView(rb);
+            index++;
         }
         mBinding.lyRadioGroup.addView(rg);
     }
