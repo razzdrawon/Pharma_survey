@@ -2,6 +2,7 @@ package com.razzdrawon.pharma_survey.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,13 +40,32 @@ public class QuestionFragment extends Fragment {
         options.add(new Option("y", "Option 2"));
         options.add(new Option("z", "Option 3"));
 
-        options.get(0).setOptions(optionsChild);
 
         QuestionItem question = new QuestionItem(1, "Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)", options);
+
+        createRadioButtons(question);
 
         mBinding.setQuestion(question);
 
         return mBinding.getRoot();
     }
+
+
+    private void createRadioButtons(QuestionItem question) {
+
+         //create the RadioGroup
+        mBinding.rgOptions.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+        int index = 0;
+        for(Option opt: question.getOptions()){
+
+            RadioButton rb = new RadioButton(getContext());
+            rb.setText(opt.getOptString());
+            rb.setId(index);
+            rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+            mBinding.rgOptions.addView(rb);
+        }
+
+    }
+
 
 }
