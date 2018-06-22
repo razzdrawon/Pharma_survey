@@ -52,9 +52,9 @@ public class QuestionFragment extends Fragment {
 
 
     private void createRadioButtons(QuestionItem question) {
-
+        RadioGroup rg = new RadioGroup(getContext());
          //create the RadioGroup
-        mBinding.rgOptions.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
         int index = 0;
         for(Option opt: question.getOptions()){
 
@@ -62,9 +62,9 @@ public class QuestionFragment extends Fragment {
             rb.setText(opt.getOptString());
             rb.setId(index);
             rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-            mBinding.rgOptions.addView(rb);
+            rg.addView(rb);
         }
-
+        mBinding.lyRadioGroup.addView(rg);
     }
 
 

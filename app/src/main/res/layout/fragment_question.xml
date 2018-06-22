@@ -56,15 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <RadioGroup
-                        android:id="@+id/rg_options"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
 
-
-                    </RadioGroup>
                 </LinearLayout>
             </LinearLayout>
 
