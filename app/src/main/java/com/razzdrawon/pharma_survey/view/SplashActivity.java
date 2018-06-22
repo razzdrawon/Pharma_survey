@@ -1,10 +1,12 @@
-package com.razzdrawon.pharma_survey;
+package com.razzdrawon.pharma_survey.view;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.razzdrawon.pharma_survey.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -1,6 +1,7 @@
 package com.razzdrawon.pharma_survey.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by mapadi3 on 28/05/18.
@@ -11,6 +12,7 @@ public class Option implements Serializable {
     private String optChar;
     private String optString;
     private Boolean checked;
+    private List<Option> options;
 
     public Option() {
     }
@@ -42,6 +44,14 @@ public class Option implements Serializable {
 
     public void setChecked(Boolean checked) {
         this.checked = checked;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 
     public String toViewString() {

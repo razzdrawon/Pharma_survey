@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.databinding.ObservableField;
 import android.view.View;
 
-import com.razzdrawon.pharma_survey.SurveyActivity;
+import com.razzdrawon.pharma_survey.view.SurveyActivity;
 
 public class ServiceViewModel {
     public final ObservableField<String> user =

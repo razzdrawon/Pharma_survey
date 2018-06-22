@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.razzdrawon.pharma_survey.SurveyActivity">
+        tools:context="com.razzdrawon.pharma_survey.view.SurveyActivity">
 
         <LinearLayout
             android:layout_width="match_parent"

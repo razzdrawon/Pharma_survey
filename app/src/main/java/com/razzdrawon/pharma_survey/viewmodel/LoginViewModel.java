@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import com.razzdrawon.pharma_survey.ServiceActivity;
+import com.razzdrawon.pharma_survey.view.ServiceActivity;
 
 public class LoginViewModel {
     public final ObservableField<String> user =

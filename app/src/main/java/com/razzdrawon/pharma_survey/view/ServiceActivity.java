@@ -1,4 +1,4 @@
-package com.razzdrawon.pharma_survey;
+package com.razzdrawon.pharma_survey.view;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivityServiceBinding;
 import com.razzdrawon.pharma_survey.viewmodel.ServiceViewModel;
 

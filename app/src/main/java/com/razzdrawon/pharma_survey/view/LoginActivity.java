@@ -1,9 +1,10 @@
-package com.razzdrawon.pharma_survey;
+package com.razzdrawon.pharma_survey.view;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivityLoginBinding;
 import com.razzdrawon.pharma_survey.viewmodel.LoginViewModel;
 
@@ -17,5 +18,6 @@ public class LoginActivity extends AppCompatActivity {
         LoginViewModel loginViewModel = new LoginViewModel("", "");
         binding.setLoginViewModel(loginViewModel);
         binding.setHandler(loginViewModel);
+
     }
 }

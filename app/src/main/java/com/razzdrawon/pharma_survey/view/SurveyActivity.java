@@ -1,4 +1,4 @@
-package com.razzdrawon.pharma_survey;
+package com.razzdrawon.pharma_survey.view;
 
 
 import android.databinding.DataBindingUtil;
@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivitySurveyBinding;
 
 public class SurveyActivity extends AppCompatActivity {
@@ -22,7 +23,7 @@ public class SurveyActivity extends AppCompatActivity {
     }
 
     private void init(){
-        ViewQuestionFragment fragment = new ViewQuestionFragment();
+        QuestionFragment fragment = new QuestionFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.main_container, fragment, getString(R.string.fragment_view_question));
         transaction.commit();
