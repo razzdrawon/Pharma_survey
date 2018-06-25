@@ -40,9 +40,9 @@ public class QuestionFragment extends Fragment {
         options.add(new Option("c", "Option 3"));
 
         List<Option> optionsChild = new ArrayList<Option>();
-        optionsChild.add(new Option("x", "Option 1"));
-        optionsChild.add(new Option("y", "Option 2"));
-        optionsChild.add(new Option("z", "Option 3"));
+        optionsChild.add(new Option("x", "Option Child 1"));
+        optionsChild.add(new Option("y", "Option Child 2"));
+        optionsChild.add(new Option("z", "Option Child 3"));
 
         QuestionItem question = new QuestionItem(1, "Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)", options);
 
