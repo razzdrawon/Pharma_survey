@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
     <data>
-        <variable name="question" type="com.razzdrawon.pharma_survey.model.QuestionItem" />
-        <variable name="handler" type="com.razzdrawon.pharma_survey.model.QuestionItem" />
+        <variable name="questionViewModel" type="com.razzdrawon.pharma_survey.viewmodel.QuestionViewModel" />
+        <variable name="handler" type="com.razzdrawon.pharma_survey.viewmodel.QuestionViewModel" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-                android:text="@{question.toViewString()}"
+                android:text="@{questionViewModel.question.toViewString()}"
                 android:textSize="30dp" />
 
 
@@ -57,6 +57,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <RadioGroup
+                        android:id="@+id/rgOptions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onCheckedChanged="@{handler.onOptionsChanged}"
+                        >
+
+                    </RadioGroup>
 
                 </LinearLayout>
             </LinearLayout>

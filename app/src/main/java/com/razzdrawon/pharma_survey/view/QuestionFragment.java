@@ -15,6 +15,7 @@ import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.FragmentQuestionBinding;
 import com.razzdrawon.pharma_survey.model.Option;
 import com.razzdrawon.pharma_survey.model.QuestionItem;
+import com.razzdrawon.pharma_survey.viewmodel.QuestionViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,43 +48,33 @@ public class QuestionFragment extends Fragment {
 
         question.getOptions().get(0).setOptions(optionsChild);
 
-        createRadioButtons(question.getOptions(), mBinding.lyRadioGroup);
+        createRadioButtons(question.getOptions());
 
-        mBinding.setQuestion(question);
+        QuestionViewModel viewModel = new QuestionViewModel(question);
+
+        mBinding.setQuestionViewModel(viewModel);
+        mBinding.setHandler(viewModel);
 
         return mBinding.getRoot();
     }
 
 
-    private void createRadioButtons(List<Option> opts, LinearLayout layout) {
-        LinearLayout ll = new LinearLayout(getContext());
-        ll.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(30, 20, 30, 0);
-
-        RadioGroup rg = new RadioGroup(getContext());
+    private void createRadioButtons(List<Option> opts) {
          //create the RadioGroup
-        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+        mBinding.rgOptions.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+
         int position = 0;
         for(Option opt: opts){
+
             RadioButton rb = new RadioButton(getContext());
-            rb.setText(opt.toViewString());
             rb.setId(position);
+            rb.setText(opt.toViewString());
             rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
-            rb.setTag("");
+            mBinding.rgOptions.addView(rb);
 
-            if (opt.getOptions() != null && opt.getOptions().size() > 0) {
-                createRadioButtons(opt.getOptions(), ll);
-            }
-
-            rg.addView(rb);
             position++;
         }
-        ll.addView(rg, layoutParams);
 
-        layout.addView(ll);
     }
-
 
 }
