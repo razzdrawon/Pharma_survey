@@ -16,7 +16,7 @@ import java.util.List;
 public class QuestionViewModel {
 
     public final ObservableField<QuestionItem> question = new ObservableField();
-
+    public Option currentOption;
     public QuestionViewModel() {
 
     }
@@ -25,15 +25,37 @@ public class QuestionViewModel {
         this.question.set(question);
     }
 
+    public void createChildren(RadioGroup radioGroup, int id, Option option) {
+        currentOption = option;
+        if(option.getOptions() != null) {
+            RadioGroup rg1 = new RadioGroup(radioGroup.getContext());
+            rg1.setTag("child" + String.valueOf(id));
+            for(Option opt: option.getOptions()){
+                RadioButton rb1 = new RadioButton(radioGroup.getContext());
+                rb1.setText(opt.toViewString());
+                rg1.addView(rb1);
+            }
+            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(
+                    RadioGroup.LayoutParams.WRAP_CONTENT,
+                    RadioGroup.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(30, 15, 0, 15);
+            rg1.setLayoutParams(params);
+            rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    createChildren(group,checkedId,currentOption);
+                }
+            });
+            radioGroup.addView(rg1, id + 1, params);
+        }
+    }
     public void onOptionsChanged(RadioGroup radioGroup, int id) {
         //RadioButton rb = (RadioButton) radioGroup.getChildAt(id);
-
-
-        if(question.get().getOptions().get(id).getOptions() != null){
+            createChildren(radioGroup,id,question.get().getOptions().get(id));
+  /*      if(question.get().getOptions().get(id).getOptions() != null){
 
             RadioGroup rg1 = new RadioGroup(radioGroup.getContext());
             rg1.setTag("child" + String.valueOf(id));
-
 
             for(Option opt: question.get().getOptions().get(id).getOptions()){
                 RadioButton rb1 = new RadioButton(radioGroup.getContext());
@@ -76,7 +98,7 @@ public class QuestionViewModel {
             });
             radioGroup.addView(rg1, id + 1, params);
 
-        }
+        }*/
 
 
 
