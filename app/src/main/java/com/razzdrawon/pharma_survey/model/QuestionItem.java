@@ -4,7 +4,7 @@ import android.support.design.widget.Snackbar;
 import android.widget.RadioGroup;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by mapadi3 on 27/05/18.
@@ -14,7 +14,7 @@ public class QuestionItem implements Serializable {
 
     private Integer qstnNbr;
     private String qstnString;
-    private List<Option> options;
+    private Map<String,Option> options;
 
     public QuestionItem() {
     }
@@ -24,7 +24,7 @@ public class QuestionItem implements Serializable {
         this.qstnString = qstnString;
     }
 
-    public QuestionItem(Integer qstnNbr, String qstnString, List<Option> options) {
+    public QuestionItem(Integer qstnNbr, String qstnString, Map<String,Option> options) {
         this.qstnNbr = qstnNbr;
         this.qstnString = qstnString;
         this.options = options;
@@ -46,11 +46,11 @@ public class QuestionItem implements Serializable {
         this.qstnString = qstnString;
     }
 
-    public List<Option> getOptions() {
+    public Map<String,Option> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Option> options) {
+    public void setOptions(Map<String,Option> options) {
         this.options = options;
     }
 

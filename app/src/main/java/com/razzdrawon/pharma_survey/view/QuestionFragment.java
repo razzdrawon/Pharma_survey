@@ -17,8 +17,8 @@ import com.razzdrawon.pharma_survey.model.Option;
 import com.razzdrawon.pharma_survey.model.QuestionItem;
 import com.razzdrawon.pharma_survey.viewmodel.QuestionViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 public class QuestionFragment extends Fragment {
 
@@ -34,20 +34,20 @@ public class QuestionFragment extends Fragment {
 
         mBinding = FragmentQuestionBinding.inflate(inflater);
 
-        List<Option> options = new ArrayList<Option>();
-        options.add(new Option("a", "Option 1"));
-        options.add(new Option("b", "Option 2"));
-        options.add(new Option("c", "Option 3"));
+        Map<String,Option> options = new HashMap<String,Option>();
+        options.put("1",new Option("a", "Option 1"));
+        options.put("2",new Option("b", "Option 2"));
+        options.put("3",new Option("c", "Option 3"));
 
-        List<Option> optionsChild = new ArrayList<Option>();
-        optionsChild.add(new Option("x", "Option Child 1"));
-        optionsChild.add(new Option("y", "Option Child 2"));
-        optionsChild.add(new Option("z", "Option Child 3"));
+        Map<String,Option> optionsChild = new HashMap<String,Option>();
+        optionsChild.put("1",new Option("x", "Option Child 1"));
+        optionsChild.put("2",new Option("y", "Option Child 2"));
+        optionsChild.put("3",new Option("z", "Option Child 3"));
 
         QuestionItem question = new QuestionItem(1, "Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)", options);
 
-        question.getOptions().get(0).setOptions(optionsChild);
-
+        question.getOptions().get("1").setOptions(optionsChild);
+        question.getOptions().get("1").getOptions().get(0).setOptions(optionsChild);
         createRadioButtons(question.getOptions());
 
         QuestionViewModel viewModel = new QuestionViewModel(question);
@@ -59,20 +59,18 @@ public class QuestionFragment extends Fragment {
     }
 
 
-    private void createRadioButtons(List<Option> opts) {
+    private void createRadioButtons(Map<String,Option> opts) {
          //create the RadioGroup
         mBinding.rgOptions.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
-
-        int position = 0;
-        for(Option opt: opts){
-
+        Set<String> keys = opts.keySet();
+        for(String key: keys){
+            Option currentOption = opts.get(key);
             RadioButton rb = new RadioButton(getContext());
-            rb.setId(position);
-            rb.setText(opt.toViewString());
+            rb.setId(Integer.valueOf(key));
+            rb.setText(currentOption.toViewString());
+            rb.setTag(key);
             rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
             mBinding.rgOptions.addView(rb);
-
-            position++;
         }
 
     }

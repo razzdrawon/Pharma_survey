@@ -1,0 +1,118 @@
+{
+  "id":1,
+  "name":"Survey Name",
+  "question":[{
+    "id":"1",
+    "name":"Sample question one",
+    "type":"radioGroup",
+    "options":[
+      {
+        "id":"1",
+        "subType":"radioGroup",
+        "value":"a",
+        "text": "Question one",
+        "options":[
+          {
+            "id":"1",
+            "subType":"radioGroup",
+            "value":"a",
+            "text": "Sub question one",
+            "options":[
+              {
+                "id":"1",
+                "subType":"none",
+                "value":"a",
+                "text": "Sub2 question one"
+              },
+              {
+                "id":"2",
+                "subType":"none",
+                "value":"b",
+                "text": "Sub2 question two"
+              },
+              {
+                "id":"3",
+                "subType":"none",
+                "value":"c",
+                "text": "Sub2 question three"
+              },
+              {
+                "id":"4",
+                "subType":"none",
+                "value":"d",
+                "text": "Sub2 question four"
+              }
+            ]
+          },
+          {
+            "id":"2",
+            "subType":"none",
+            "value":"b",
+            "text": "Sub question two"
+          },
+          {
+            "id":"3",
+            "subType":"none",
+            "value":"c",
+            "text": "Sub question three"
+          },
+          {
+            "id":"4",
+            "subType":"none",
+            "value":"d",
+            "text": "Sub question four"
+          }
+        ]
+      },
+      {
+        "id":"2",
+        "subType":"textBox",
+        "value":"b",
+        "text": "Question two"
+      },
+      {
+        "id":"3",
+        "subType":"slide",
+        "value":"c",
+        "text": "Question three"
+      },
+      {
+        "id":"4",
+        "subType":"none",
+        "value":"d",
+        "text": "Question four"
+      }
+    ]
+  },
+    {
+      "id":"2",
+      "name":"Sample question one",
+      "type":"radioGroup",
+      "options":[
+        {
+          "id":"1",
+          "subType":"none",
+          "value":"a",
+          "text": "Question one"
+        },
+        {
+          "id":"2",
+          "subType":"none",
+          "value":"b",
+          "text": "Question two"
+        },
+        {
+          "id":"3",
+          "subType":"none",
+          "value":"c",
+          "text": "Question three"
+        },
+        {
+          "id":"4",
+          "subType":"none",
+          "value":"d",
+          "text": "Question four"
+        }
+      ]
+    }]
+}

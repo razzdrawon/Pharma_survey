@@ -15,8 +15,11 @@ import java.util.List;
 
 public class QuestionViewModel {
 
+    private final Integer LVL_ONE=1000;
+    private final Integer LVL_TWO=100;
+    private final Integer LVL_THREE=10;
+    private final Integer LVL_FOUR=1;
     public final ObservableField<QuestionItem> question = new ObservableField();
-    public Option currentOption;
     public QuestionViewModel() {
 
     }
@@ -26,7 +29,6 @@ public class QuestionViewModel {
     }
 
     public void createChildren(RadioGroup radioGroup, int id, Option option) {
-        currentOption = option;
         if(option.getOptions() != null) {
             RadioGroup rg1 = new RadioGroup(radioGroup.getContext());
             rg1.setTag("child" + String.valueOf(id));
@@ -42,65 +44,32 @@ public class QuestionViewModel {
             params.setMargins(30, 15, 0, 15);
             rg1.setLayoutParams(params);
             rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    createChildren(group,checkedId,currentOption);
+                public void onCheckedChanged(RadioGroup group, int id) {
+                    if(id%LVL_ONE==0){
+                        createChildren(group,id,question.get().getOptions().get(id));
+                    } else if (id%LVL_TWO==0){
+                        createChildren(group,id,question.get().getOptions().get((id/LVL_ONE)*LVL_ONE).getOptions().get(id));
+                    } else if (id%LVL_THREE==0){
+                        Integer idOne = (id/LVL_ONE)*LVL_ONE;
+                        Integer idTwo = (id-idOne/LVL_TWO)*LVL_TWO;
+                        createChildren(group,id,question.get().getOptions().get(idOne).getOptions().get(idTwo).getOptions().get(id));
+                    }
                 }
             });
-            radioGroup.addView(rg1, id + 1, params);
+            radioGroup.removeViewAt(id + 1);  //need to review
+            radioGroup.addView(rg1, id + 1, params);  //need to review
         }
     }
     public void onOptionsChanged(RadioGroup radioGroup, int id) {
-        //RadioButton rb = (RadioButton) radioGroup.getChildAt(id);
+        int rbId = radioGroup.getCheckedRadioButtonId();
+        if(id%LVL_ONE==0){
             createChildren(radioGroup,id,question.get().getOptions().get(id));
-  /*      if(question.get().getOptions().get(id).getOptions() != null){
-
-            RadioGroup rg1 = new RadioGroup(radioGroup.getContext());
-            rg1.setTag("child" + String.valueOf(id));
-
-            for(Option opt: question.get().getOptions().get(id).getOptions()){
-                RadioButton rb1 = new RadioButton(radioGroup.getContext());
-                rb1.setText(opt.toViewString());
-                rg1.addView(rb1);
-            }
-
-            RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(
-                    RadioGroup.LayoutParams.WRAP_CONTENT,
-                    RadioGroup.LayoutParams.WRAP_CONTENT
-            );
-            params.setMargins(30, 15, 0, 15);
-            rg1.setLayoutParams(params);
-
-            rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-            {
-                public void onCheckedChanged(RadioGroup group, int checkedId)
-                {
-                    // This will get the radiobutton that has changed in its check state
-                    RadioGroup rgch1 = new RadioGroup(group.getContext());
-                    rgch1.setTag("child" + String.valueOf(checkedId));
-
-
-                    RadioButton rbch1 = new RadioButton(group.getContext());
-                    rbch1.setText("333333");
-                    rgch1.addView(rbch1);
-
-                    RadioButton rbch2 = new RadioButton(group.getContext());
-                    rbch2.setText("444444");
-                    rgch1.addView(rbch2);
-
-                    RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(
-                            RadioGroup.LayoutParams.WRAP_CONTENT,
-                            RadioGroup.LayoutParams.WRAP_CONTENT
-                    );
-                    params.setMargins(30, 15, 0, 15);
-                    rgch1.setLayoutParams(params);
-                    group.addView(rgch1, checkedId + 1, params);
-                }
-            });
-            radioGroup.addView(rg1, id + 1, params);
-
-        }*/
-
-
-
+        } else if (id%LVL_TWO==0){
+            createChildren(radioGroup,id,question.get().getOptions().get((id/LVL_ONE)*LVL_ONE).getOptions().get(id));
+        } else if (id%LVL_THREE==0){
+            Integer idOne = (id/LVL_ONE)*LVL_ONE;
+            Integer idTwo = (id-idOne/LVL_TWO)*LVL_TWO;
+            createChildren(radioGroup,id,question.get().getOptions().get(idOne).getOptions().get(idTwo).getOptions().get(id));
+        }
     }
 }
