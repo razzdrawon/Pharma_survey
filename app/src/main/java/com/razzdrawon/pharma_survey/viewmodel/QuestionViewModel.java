@@ -8,6 +8,7 @@ import com.razzdrawon.pharma_survey.model.Option;
 import com.razzdrawon.pharma_survey.model.QuestionItem;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by mapadi3 on 21/06/18.
@@ -32,9 +33,9 @@ public class QuestionViewModel {
         if(option.getOptions() != null) {
             RadioGroup rg1 = new RadioGroup(radioGroup.getContext());
             rg1.setTag("child" + String.valueOf(id));
-            for(Option opt: option.getOptions()){
+            for(Map.Entry<String, Option> opt: option.getOptions().entrySet()){
                 RadioButton rb1 = new RadioButton(radioGroup.getContext());
-                rb1.setText(opt.toViewString());
+                rb1.setText(opt.getValue().toViewString());
                 rg1.addView(rb1);
             }
             RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(

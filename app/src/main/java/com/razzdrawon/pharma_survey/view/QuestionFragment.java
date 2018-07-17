@@ -47,7 +47,7 @@ public class QuestionFragment extends Fragment {
         QuestionItem question = new QuestionItem(1, "Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)", options);
 
         question.getOptions().get("1").setOptions(optionsChild);
-        question.getOptions().get("1").getOptions().get(0).setOptions(optionsChild);
+        question.getOptions().get("1").getOptions().get("1").setOptions(optionsChild);
         createRadioButtons(question.getOptions());
 
         QuestionViewModel viewModel = new QuestionViewModel(question);
