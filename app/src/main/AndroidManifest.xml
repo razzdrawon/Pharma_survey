@@ -26,7 +26,8 @@
             android:name=".view.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".view.ServiceActivity"></activity>
+        <activity android:name=".view.ServiceActivity" />
+        <activity android:name=".view.FinalizationActivity"></activity>
     </application>
 
 </manifest>
