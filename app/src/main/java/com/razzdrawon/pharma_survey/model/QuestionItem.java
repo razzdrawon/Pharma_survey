@@ -12,57 +12,93 @@ import java.util.*;
 
 public class QuestionItem implements Serializable {
 
-    private Integer qstnNbr;
-    private String qstnString;
+    private Integer seccionId;
+    private Integer questionId;
+    private Integer type;
+    private String sentense;
+    private Boolean isFinal;
+    private Integer nextQstn;
+    private Integer nextSeccion;
     private Map<String,Option> options;
+
 
     public QuestionItem() {
     }
 
-    public QuestionItem(Integer qstnNbr, String qstnString) {
-        this.qstnNbr = qstnNbr;
-        this.qstnString = qstnString;
+    public Integer getSeccionId() {
+        return seccionId;
     }
 
-    public QuestionItem(Integer qstnNbr, String qstnString, Map<String,Option> options) {
-        this.qstnNbr = qstnNbr;
-        this.qstnString = qstnString;
-        this.options = options;
+    public void setSeccionId(Integer seccionId) {
+        this.seccionId = seccionId;
     }
 
-    public Integer getQstnNbr() {
-        return qstnNbr;
+    public Integer getQuestionId() {
+        return questionId;
     }
 
-    public void setQstnNbr(Integer qstnNbr) {
-        this.qstnNbr = qstnNbr;
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
-    public String getQstnString() {
-        return qstnString;
+    public Integer getType() {
+        return type;
     }
 
-    public void setQstnString(String qstnString) {
-        this.qstnString = qstnString;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public Map<String,Option> getOptions() {
+    public String getSentense() {
+        return sentense;
+    }
+
+    public void setSentense(String sentense) {
+        this.sentense = sentense;
+    }
+
+    public Boolean getFinal() {
+        return isFinal;
+    }
+
+    public void setFinal(Boolean aFinal) {
+        isFinal = aFinal;
+    }
+
+    public Integer getNextQstn() {
+        return nextQstn;
+    }
+
+    public void setNextQstn(Integer nextQstn) {
+        this.nextQstn = nextQstn;
+    }
+
+    public Integer getNextSeccion() {
+        return nextSeccion;
+    }
+
+    public void setNextSeccion(Integer nextSeccion) {
+        this.nextSeccion = nextSeccion;
+    }
+
+    public Map<String, Option> getOptions() {
         return options;
     }
 
-    public void setOptions(Map<String,Option> options) {
+    public void setOptions(Map<String, Option> options) {
         this.options = options;
-    }
-
-    public String toViewString() {
-        return qstnString;
     }
 
     @Override
     public String toString() {
         return "QuestionItem{" +
-                "qstnNbr=" + qstnNbr +
-                ", qstnString='" + qstnString + '\'' +
+                "seccionId=" + seccionId +
+                ", questionId=" + questionId +
+                ", type=" + type +
+                ", sentense='" + sentense + '\'' +
+                ", isFinal=" + isFinal +
+                ", nextQstn=" + nextQstn +
+                ", nextSeccion=" + nextSeccion +
                 ", options=" + options +
                 '}';
     }
