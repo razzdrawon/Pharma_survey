@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 
-import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.FragmentQuestionBinding;
 import com.razzdrawon.pharma_survey.model.Option;
 import com.razzdrawon.pharma_survey.model.QuestionItem;
@@ -47,12 +45,20 @@ public class QuestionFragment extends Fragment {
         QuestionItem question = new QuestionItem();
         question.setSeccionId(1);
         question.setQuestionId(1);
-        question.setSentense("Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)");
+        question.setType(1);
+        question.setNextQstn(2);
+        question.setNextSeccion(1);
+        question.setSentence("¿Cuántos años lleva la institución proporcionando servicios en materia de cuidados paliativos?");
         question.setOptions(options);
+        LinearLayout radioLayout;
+        switch(question.getType()){
+            case 1:
 
-        question.getOptions().get("1").setOptions(optionsChild);
-        question.getOptions().get("1").getOptions().get("1").setOptions(optionsChild);
-        createRadioButtons(question.getOptions());
+                createSimpleQuestion();
+                break;
+            case 2:
+                createRadioButtons(question.getOptions());
+        }
 
         QuestionViewModel viewModel = new QuestionViewModel(question);
 
@@ -64,10 +70,9 @@ public class QuestionFragment extends Fragment {
 
 
     private void createRadioButtons(Map<String,Option> opts) {
-         //create the RadioGroup
         mBinding.rgOptions.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
         Set<String> keys = opts.keySet();
-        for(String key: keys){
+        for (String key : keys) {
             Option currentOption = opts.get(key);
             RadioButton rb = new RadioButton(getContext());
             rb.setId(Integer.valueOf(key));
@@ -76,7 +81,6 @@ public class QuestionFragment extends Fragment {
             rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
             mBinding.rgOptions.addView(rb);
         }
-
     }
 
 }

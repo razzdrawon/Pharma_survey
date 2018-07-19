@@ -1,8 +1,5 @@
 package com.razzdrawon.pharma_survey.model;
 
-import android.support.design.widget.Snackbar;
-import android.widget.RadioGroup;
-
 import java.io.Serializable;
 import java.util.*;
 
@@ -15,7 +12,7 @@ public class QuestionItem implements Serializable {
     private Integer seccionId;
     private Integer questionId;
     private Integer type;
-    private String sentense;
+    private String sentence;
     private Boolean isFinal;
     private Integer nextQstn;
     private Integer nextSeccion;
@@ -49,12 +46,12 @@ public class QuestionItem implements Serializable {
         this.type = type;
     }
 
-    public String getSentense() {
-        return sentense;
+    public String getSentence() {
+        return sentence;
     }
 
-    public void setSentense(String sentense) {
-        this.sentense = sentense;
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 
     public Boolean getFinal() {
@@ -95,7 +92,7 @@ public class QuestionItem implements Serializable {
                 "seccionId=" + seccionId +
                 ", questionId=" + questionId +
                 ", type=" + type +
-                ", sentense='" + sentense + '\'' +
+                ", sentence='" + sentence + '\'' +
                 ", isFinal=" + isFinal +
                 ", nextQstn=" + nextQstn +
                 ", nextSeccion=" + nextSeccion +
