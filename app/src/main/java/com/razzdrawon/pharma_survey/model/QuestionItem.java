@@ -86,6 +86,10 @@ public class QuestionItem implements Serializable {
         this.options = options;
     }
 
+    public String toViewString() {
+        return sentense;
+    }
+
     @Override
     public String toString() {
         return "QuestionItem{" +
