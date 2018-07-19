@@ -87,7 +87,7 @@ public class QuestionItem implements Serializable {
     }
 
     public String toViewString() {
-        return sentense;
+        return sentence;
     }
 
     @Override

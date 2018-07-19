@@ -33,14 +33,9 @@ public class QuestionFragment extends Fragment {
         mBinding = FragmentQuestionBinding.inflate(inflater);
 
         Map<String,Option> options = new HashMap<String,Option>();
-        options.put("1",new Option("a", "Option 1"));
-        options.put("2",new Option("b", "Option 2"));
-        options.put("3",new Option("c", "Option 3"));
-
-        Map<String,Option> optionsChild = new HashMap<String,Option>();
-        optionsChild.put("1",new Option("x", "Option Child 1"));
-        optionsChild.put("2",new Option("y", "Option Child 2"));
-        optionsChild.put("3",new Option("z", "Option Child 3"));
+        options.put("1",new Option("a", "Cuidados Paliativos"));
+        options.put("2",new Option("b", "Cuidados Paliativos y clínica del dolor"));
+        options.put("3",new Option("c", "Clínica del dolor"));
 
         QuestionItem question = new QuestionItem();
         question.setSeccionId(1);
@@ -49,20 +44,30 @@ public class QuestionFragment extends Fragment {
         question.setNextQstn(2);
         question.setNextSeccion(1);
         question.setSentence("¿Cuántos años lleva la institución proporcionando servicios en materia de cuidados paliativos?");
-        question.setOptions(options);
-        LinearLayout radioLayout;
-        switch(question.getType()){
+        question.setOptions(null);
+
+        QuestionItem question2 = new QuestionItem();
+        question2.setSeccionId(1);
+        question2.setQuestionId(2);
+        question2.setType(2);
+        question2.setNextQstn(null);
+        question2.setNextSeccion(null);
+        question2.setSentence("Tipos de servicio");
+        question2.setOptions(options);
+        QuestionItem currentQuestion = question2;
+        switch(currentQuestion.getType()){
             case 1:
                 mBinding.lyRadioGroup.setVisibility(LinearLayout.GONE);
-               // createSimpleQuestion();
                 break;
             case 2:
                 mBinding.lyTextField.setVisibility(LinearLayout.GONE);
-                createRadioButtons(question.getOptions());
+                createRadioButtons(currentQuestion.getOptions());
                 break;
         }
-
-        QuestionViewModel viewModel = new QuestionViewModel(question);
+        if(currentQuestion.getNextQstn()!=null){
+            mBinding.button2.setVisibility(LinearLayout.GONE);
+        }
+        QuestionViewModel viewModel = new QuestionViewModel(question2);
 
         mBinding.setQuestionViewModel(viewModel);
         mBinding.setHandler(viewModel);
