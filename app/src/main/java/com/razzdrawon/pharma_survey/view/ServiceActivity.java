@@ -21,6 +21,8 @@ public class ServiceActivity extends AppCompatActivity {
         initDataBinding();
 
         setUpServiceSpinners(binding.spnTypeService, binding.spnService);
+
+
     }
 
     private void setUpServiceSpinners(Spinner spnTypeService, Spinner spnService) {

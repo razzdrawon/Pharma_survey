@@ -8,6 +8,11 @@ import android.os.Bundle;
 
 import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivitySurveyBinding;
+import com.razzdrawon.pharma_survey.model.Section;
+import com.razzdrawon.pharma_survey.model.Survey;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SurveyActivity extends AppCompatActivity {
 
@@ -19,7 +24,29 @@ public class SurveyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_survey);
 
+        Survey survey = pullSurveyInfo();
+
+
         init();
+
+    }
+
+    private Survey pullSurveyInfo() {
+        Survey survey = new Survey();
+        survey.setStablishmentId(123);
+        survey.setSubtypeId(123);
+        survey.setCaptureDate("2018/07/18");
+        survey.setSyncDate("2018/07/18");
+        survey.setLatitude("19.538576");
+        survey.setLongitude("-99.218727");
+
+        List<Section> sections = new ArrayList<>();
+        Section section1 = new Section();
+        Section section2 = new Section();
+        Section section3 = new Section();
+        Section section4 = new Section();
+
+        return survey;
     }
 
     private void init(){
