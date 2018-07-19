@@ -53,11 +53,13 @@ public class QuestionFragment extends Fragment {
         LinearLayout radioLayout;
         switch(question.getType()){
             case 1:
-
-                createSimpleQuestion();
+                mBinding.lyRadioGroup.setVisibility(LinearLayout.GONE);
+               // createSimpleQuestion();
                 break;
             case 2:
+                mBinding.lyTextField.setVisibility(LinearLayout.GONE);
                 createRadioButtons(question.getOptions());
+                break;
         }
 
         QuestionViewModel viewModel = new QuestionViewModel(question);
