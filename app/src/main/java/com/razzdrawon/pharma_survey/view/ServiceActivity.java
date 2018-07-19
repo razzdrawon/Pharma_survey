@@ -37,5 +37,5 @@ public class ServiceActivity extends AppCompatActivity {
         serviceViewModel = new ServiceViewModel();
         binding.setHandler(serviceViewModel);
     }
-    
+
 }
