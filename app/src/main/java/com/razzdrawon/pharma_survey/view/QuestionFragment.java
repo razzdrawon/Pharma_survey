@@ -44,7 +44,11 @@ public class QuestionFragment extends Fragment {
         optionsChild.put("2",new Option("y", "Option Child 2"));
         optionsChild.put("3",new Option("z", "Option Child 3"));
 
-        QuestionItem question = new QuestionItem(1, "Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)", options);
+        QuestionItem question = new QuestionItem();
+        question.setSeccionId(1);
+        question.setQuestionId(1);
+        question.setSentense("Medicamentos prescritos por el serivio en el último trimestre (elija todas las que apliquen)");
+        question.setOptions(options);
 
         question.getOptions().get("1").setOptions(optionsChild);
         question.getOptions().get("1").getOptions().get("1").setOptions(optionsChild);
