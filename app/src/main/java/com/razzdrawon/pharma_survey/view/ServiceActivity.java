@@ -25,10 +25,10 @@ public class ServiceActivity extends AppCompatActivity {
 
     private void setUpServiceSpinners(Spinner spnTypeService, Spinner spnService) {
 
-        ArrayAdapter<String> adapterType = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.type_service_array));
+        ArrayAdapter<String> adapterType = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.stablishment_array));
         spnTypeService.setAdapter(adapterType);
 
-        ArrayAdapter<String> adapterService = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.service_array));
+        ArrayAdapter<String> adapterService = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.type_service_array));
         spnService.setAdapter(adapterService);
     }
 
