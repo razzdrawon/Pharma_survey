@@ -13,11 +13,11 @@
         <item>No</item>
     </string-array>
 
-    <string name="service_label">Selecciona el tipo de servicio</string>
+    <string name="stablishment_label">Seleccione establecimiento</string>
 
-    <string name="type_service_label">Selecciona el servicio</string>
+    <string name="type_service_label">Seleccione el servicio</string>
 
-    <string-array name="service_array">
+    <string-array name="stablishment_array">
         <item>Instituto Nacional de Pediatria</item>
         <item>Hospital General de Mexico</item>
         <item>Hospital Infantil de Mexico</item>
