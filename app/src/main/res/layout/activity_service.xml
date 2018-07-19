@@ -17,6 +17,26 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:paddingLeft="50dp"
+                    android:textSize="40dp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/service_label" />
+
+                <Spinner
+                    android:id="@+id/spn_type_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:entries="@array/type_service_array"
+                    android:prompt="@string/service_label"
+                    style="@style/mySpinnerItemStyle" />
+
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -24,7 +44,7 @@
                     android:paddingLeft="50dp"
                     android:textSize="40dp"
                     android:textColor="@android:color/black"
-                    android:text="Seleccione el servicio" />
+                    android:text="@string/type_service_label" />
 
                 <Spinner
                     android:id="@+id/spn_service"
@@ -33,8 +53,8 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
-                    android:entries="@array/country_arrays"
-                    android:prompt="@string/country_prompt"
+                    android:entries="@array/service_array"
+                    android:prompt="@string/type_service_label"
                     style="@style/mySpinnerItemStyle" />
             </LinearLayout>
 

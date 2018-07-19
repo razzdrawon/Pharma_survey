@@ -10,9 +10,6 @@ import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivityServiceBinding;
 import com.razzdrawon.pharma_survey.viewmodel.ServiceViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ServiceActivity extends AppCompatActivity {
 
     private ActivityServiceBinding binding;
@@ -23,20 +20,16 @@ public class ServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initDataBinding();
 
-        setUpServiceSpinner(binding.spnService);
+        setUpServiceSpinners(binding.spnTypeService, binding.spnService);
     }
 
-    private void setUpServiceSpinner(Spinner spnService) {
+    private void setUpServiceSpinners(Spinner spnTypeService, Spinner spnService) {
 
-        List<String> list = new ArrayList<String>();
-        list.add("Instituto Nacional de Pediatria");
-        list.add("Hospital General de Mexico");
-        list.add("Hospital Infantil de Mexico");
-        list.add("Hospital ABC");
-        list.add("Hospital Medica Sur");
+        ArrayAdapter<String> adapterType = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.type_service_array));
+        spnTypeService.setAdapter(adapterType);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, list);
-        spnService.setAdapter(adapter);
+        ArrayAdapter<String> adapterService = new ArrayAdapter<String>(this, R.layout.spinner_item, getResources().getStringArray(R.array.service_array));
+        spnService.setAdapter(adapterService);
     }
 
     private void initDataBinding () {
@@ -44,4 +37,5 @@ public class ServiceActivity extends AppCompatActivity {
         serviceViewModel = new ServiceViewModel();
         binding.setHandler(serviceViewModel);
     }
+
 }
