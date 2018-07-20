@@ -8,7 +8,16 @@ import android.widget.Spinner;
 
 import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivityServiceBinding;
+import com.razzdrawon.pharma_survey.model.Option;
+import com.razzdrawon.pharma_survey.model.QuestionItem;
+import com.razzdrawon.pharma_survey.model.Section;
+import com.razzdrawon.pharma_survey.model.Survey;
 import com.razzdrawon.pharma_survey.viewmodel.ServiceViewModel;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ServiceActivity extends AppCompatActivity {
 
@@ -21,6 +30,7 @@ public class ServiceActivity extends AppCompatActivity {
         initDataBinding();
 
         setUpServiceSpinners(binding.spnTypeService, binding.spnService);
+
 
 
     }

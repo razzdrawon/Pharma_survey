@@ -15,6 +15,7 @@ public class Survey implements Serializable {
     private String syncDate;
     private String latitude;
     private String longitude;
+    private Integer sectionSelected;
     private List<Section> sections;
 
     public Integer getStablishmentId() {
@@ -63,6 +64,14 @@ public class Survey implements Serializable {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public Integer getSectionSelected() {
+        return sectionSelected;
+    }
+
+    public void setSectionSelected(Integer sectionSelected) {
+        this.sectionSelected = sectionSelected;
     }
 
     public List<Section> getSections() {

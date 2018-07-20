@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.razzdrawon.pharma_survey.R;
 import com.razzdrawon.pharma_survey.databinding.ActivitySurveyBinding;
@@ -18,38 +19,36 @@ public class SurveyActivity extends AppCompatActivity {
 
     // data binding
     ActivitySurveyBinding mBinding;
+    Survey survey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_survey);
 
-        Survey survey = pullSurveyInfo();
+        survey = null;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+            } else {
+                survey= (Survey) extras.getSerializable("SURVEY");
+            }
+        } else {
+            survey= (Survey) savedInstanceState.getSerializable("SURVEY");
+        }
+
 
 
         init();
 
     }
 
-    private Survey pullSurveyInfo() {
-        Survey survey = new Survey();
-        survey.setStablishmentId(123);
-        survey.setSubtypeId(123);
-        survey.setCaptureDate("2018/07/18");
-        survey.setSyncDate("2018/07/18");
-        survey.setLatitude("19.538576");
-        survey.setLongitude("-99.218727");
-
-        List<Section> sections = new ArrayList<>();
-        Section section1 = new Section();
-        Section section2 = new Section();
-        Section section3 = new Section();
-        Section section4 = new Section();
-
-        return survey;
-    }
 
     private void init(){
+
+        mBinding.llySections.getChildAt(survey.getSectionSelected() - 1).setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+
         QuestionFragment fragment = new QuestionFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.main_container, fragment, getString(R.string.fragment_view_question));
