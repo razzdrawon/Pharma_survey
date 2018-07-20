@@ -38,7 +38,7 @@ public class QuestionFragment extends Fragment {
         options.put("3",new Option("c", "Clínica del dolor"));
 
         QuestionItem question = new QuestionItem();
-        question.setSeccionId(1);
+        question.setSectionId(1);
         question.setQuestionId(1);
         question.setType(1);
         question.setNextQstn(2);
@@ -47,7 +47,7 @@ public class QuestionFragment extends Fragment {
         question.setOptions(null);
 
         QuestionItem question2 = new QuestionItem();
-        question2.setSeccionId(1);
+        question2.setSectionId(1);
         question2.setQuestionId(2);
         question2.setType(2);
         question2.setNextQstn(null);
@@ -55,6 +55,8 @@ public class QuestionFragment extends Fragment {
         question2.setSentence("Tipos de servicio");
         question2.setOptions(options);
         QuestionItem currentQuestion = question2;
+
+
         switch(currentQuestion.getType()){
             case 1:
                 mBinding.lyRadioGroup.setVisibility(LinearLayout.GONE);

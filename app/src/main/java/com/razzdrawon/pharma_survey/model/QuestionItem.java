@@ -9,7 +9,7 @@ import java.util.*;
 
 public class QuestionItem implements Serializable {
 
-    private Integer seccionId;
+    private Integer sectionId;
     private Integer questionId;
     private Integer type;
     private String sentence;
@@ -22,12 +22,12 @@ public class QuestionItem implements Serializable {
     public QuestionItem() {
     }
 
-    public Integer getSeccionId() {
-        return seccionId;
+    public Integer getSectionId() {
+        return sectionId;
     }
 
-    public void setSeccionId(Integer seccionId) {
-        this.seccionId = seccionId;
+    public void setSectionId(Integer sectionId) {
+        this.sectionId = sectionId;
     }
 
     public Integer getQuestionId() {
@@ -93,7 +93,7 @@ public class QuestionItem implements Serializable {
     @Override
     public String toString() {
         return "QuestionItem{" +
-                "seccionId=" + seccionId +
+                "sectionId=" + sectionId +
                 ", questionId=" + questionId +
                 ", type=" + type +
                 ", sentence='" + sentence + '\'' +

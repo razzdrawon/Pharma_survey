@@ -41,9 +41,9 @@ public class ServiceViewModel {
 
         List<QuestionItem> questionsSec1 = new ArrayList<>();
         QuestionItem question1 = new QuestionItem();
-        question1.setSeccionId(1);
+        question1.setSectionId(1);
         question1.setQuestionId(1);
-        question1.setSentense(String.format("This is the question %s section %s and this is an Open question:", question1.getQuestionId(), question1.getSeccionId()));
+        question1.setSentence(String.format("This is the question %s section %s and this is an Open question:", question1.getQuestionId(), question1.getSectionId()));
         question1.setType(1);
         question1.setNextSeccion(1);
         question1.setNextQstn(2);
@@ -52,9 +52,9 @@ public class ServiceViewModel {
         sections.add(section1);
 
         QuestionItem question2 = new QuestionItem();
-        question2.setSeccionId(1);
+        question2.setSectionId(1);
         question2.setQuestionId(2);
-        question2.setSentense(String.format("This is the question %s section %s and this is a options question", question2.getQuestionId(), question2.getSeccionId()));
+        question2.setSentence(String.format("This is the question %s section %s and this is a options question", question2.getQuestionId(), question2.getSectionId()));
         question2.setType(2);
         question2.setNextSeccion(1);
         question2.setNextQstn(null);
