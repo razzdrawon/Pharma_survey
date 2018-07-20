@@ -1,11 +1,18 @@
 package com.razzdrawon.pharma_survey.viewmodel;
 
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.ObservableField;
+import android.os.Handler;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.razzdrawon.pharma_survey.model.Option;
 import com.razzdrawon.pharma_survey.model.QuestionItem;
+import com.razzdrawon.pharma_survey.view.FinalizationActivity;
+import com.razzdrawon.pharma_survey.view.ServiceActivity;
 
 import java.util.List;
 import java.util.Map;
@@ -72,5 +79,15 @@ public class QuestionViewModel {
             Integer idTwo = (id-idOne/LVL_TWO)*LVL_TWO;
             createChildren(radioGroup,id,question.get().getOptions().get(idOne).getOptions().get(idTwo).getOptions().get(id));
         }
+    }
+
+    public void onClick(final View view) {
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, FinalizationActivity.class);
+                context.startActivity(intent);
+            }
+        }, 500);
     }
 }
