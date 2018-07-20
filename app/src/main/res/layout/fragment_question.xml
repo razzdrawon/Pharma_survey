@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="30dp"
+            android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <TextView
@@ -33,8 +33,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="@{questionViewModel.question.toViewString()}"
                 android:textSize="30dp" />
 
@@ -43,13 +43,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:textSize="30dp"
-                    android:text="Morfina"/>
 
                 <LinearLayout
                     android:id="@+id/ly_radio_group"
@@ -61,13 +54,42 @@
                         android:id="@+id/rgOptions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:onCheckedChanged="@{handler.onOptionsChanged}"
-                        >
+                        android:onCheckedChanged="@{handler.onOptionsChanged}"></RadioGroup>
+                </LinearLayout>
 
-                    </RadioGroup>
+                <LinearLayout
+                    android:id="@+id/ly_text_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+
+                    <EditText
+                        android:id="@+id/editText2"
+                        android:layout_width="237dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="20dp"
+                        android:textSize="24sp" />
 
                 </LinearLayout>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="200dp"
+                android:text="Finalizar"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_blue_dark"
+                android:onClick="@{handler.onClick}"/>
+
 
         </LinearLayout>
 
